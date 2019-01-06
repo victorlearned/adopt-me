@@ -1,0 +1,29 @@
+{
+  "name": "adopt-me",
+  "version": "1.0.0",
+  "description": "React application based off Frontend Master's \"Complete Intro to React v4\"",
+  "main": "src/App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint **/*.{js,jsx} --quiet",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorlearned/adopt-me.git"
+  },
+  "author": "Victor Learned",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorlearned/adopt-me/issues"
+  },
+  "homepage": "https://github.com/victorlearned/adopt-me#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-prettier": "^3.3.0",
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.15.3"
+  }
+}
