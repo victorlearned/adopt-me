@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "eslint **/*.{js,jsx} --quiet",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/index.html"
   },
   "repository": {
@@ -19,10 +19,17 @@
     "url": "https://github.com/victorlearned/adopt-me/issues"
   },
   "homepage": "https://github.com/victorlearned/adopt-me#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.12.0",
     "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
     "parcel-bundler": "^1.11.0",
     "prettier": "^1.15.3"
   }
