@@ -40,16 +40,33 @@ class App extends React.Component {
         });
       });
   }
-  // componentDidMount() {
-  //   petfinder.breed.list({ animal: "dog" }).then(console.log, console.error);
-  // }
   render() {
     return (
       <div>
         <h1>Adopt Me!</h1>
-        <Pet name="Luna" animal="dog" breed="Havanese" />
-        <Pet name="Pepper" animal="bird" breed="Cockatiel" />
-        <Pet name="Doink" animal="cat" breed="Mix" />
+        <div>
+          {this.state.pets.map(pet => {
+            let breed;
+            if (Array.isArray(pet.breeds.breed)) {
+              breed = pet.breeds.breed.join(", ");
+            } else {
+              breed = pet.breeds.breed;
+            }
+            return (
+              // Key is a unique identifier that we give React so it can do quick comparisons on objects.
+              // All React knows is it got a new list. Without any further hinting, React would just destroy all the DOM objects and start over.
+              // If we give it a unique key for each object, it can track that an object just moved positions and didn't actually get destroyed and just move the DOM object instead of re-rendering.
+              <Pet
+                animal={pet.animal}
+                key={pet.id}
+                name={pet.name}
+                breed={breed}
+                location={`${pet.contact.city}, ${pet.contact.state}`}
+                media={pet.media}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
