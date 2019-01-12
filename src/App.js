@@ -10,9 +10,39 @@ const petfinder = pf({
 
 // Converting App to a class component from a functional component
 class App extends React.Component {
-  componentDidMount() {
-    petfinder.breed.list({ animal: "dog" }).then(console.log, console.error);
+  constructor(props) {
+    super(props);
+
+    // define the initial state
+    this.state = {
+      pets: []
+    };
   }
+
+  componentDidMount() {
+    petfinder.pet
+      .find({ location: "Seattle, WA", output: "full" })
+      .then(data => {
+        let pets;
+        // their API returns an object if only 1 pet but array w/multi pets
+        if (data.petfinder.pets && data.petfinder.pets.pet) {
+          if (Array.isArray(data.petfinder.pets.pet)) {
+            pets = data.petfinder.pets.pet;
+          } else {
+            pets = [data.petfinder.pets.pet];
+          }
+        } else {
+          pets = [];
+        }
+        // set the new state
+        this.setState({
+          pets
+        });
+      });
+  }
+  // componentDidMount() {
+  //   petfinder.breed.list({ animal: "dog" }).then(console.log, console.error);
+  // }
   render() {
     return (
       <div>
