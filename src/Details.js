@@ -8,14 +8,12 @@ const petfinder = pf({
 });
 
 class Details extends React.Component {
-  constructor(props) {
-    super(props);
-    // setting loading to true so user knows when we first load a component it's waiting
-    // on the data from the APi to return. Once we get the data set to false
-    this.state = {
-      loading: true
-    };
-  }
+  // setting loading to true so user knows when we first load a component it's waiting
+  // on the data from the APi to return. Once we get the data set to false
+  // removed constructor by pointing babel at es2018
+  state = {
+    loading: true
+  };
 
   componentDidMount() {
     petfinder.pet
